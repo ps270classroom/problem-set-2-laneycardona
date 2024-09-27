@@ -51,8 +51,7 @@ library(tidyverse)
 fb_ads <- read_csv("data/fb_ads.csv")
 incumbency_table <- fb_ads |>
   count(incumbency) |>
-  knitr::kable()
-incumbency_table
+  knitr::kable(incumbency_table)
 ```
 There are 7,014 candidates. 
 
@@ -115,7 +114,7 @@ fb_ads_us_house <- fb_ads |>
   geom_histogram()
 plot_q3
 ```
-Most of the candidates had less than 10 million ad impressions on Facebook, as the graph show a downward trend as the impressions increased. 
+Most of the US House candidates had less than 10 million ads on Facebook, as the shape of the graph show a downward trend as the impressions increased. 
 
 
 \newpage
