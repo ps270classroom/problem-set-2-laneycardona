@@ -46,11 +46,13 @@ Use `dplyr` functions to create a table with the number of candidates in each ty
 ## Answer 1
 
 ```{r}
+options(width = 100)
 library(tidyverse)
 
 fb_ads <- read_csv("data/fb_ads.csv")
+
 incumbency_table <- fb_ads |>
-  count(incumbency) |>
+  count(incumbency) 
   knitr::kable(incumbency_table)
 ```
 There are 7,014 candidates. 
@@ -79,7 +81,7 @@ In the writeup, describe which type of candidate sponsored the most promoting ad
 ```{r}
 party_incumbent_promote <- fb_ads |>
   group_by(party, incumbency) |>
-  filter(office == "US House" | office == "US Senate") |>
+  filter(office == "US Senate" | office == "US House") |>
   summarize(promote_prop = mean(ad_tone_promote, na.rm = TRUE))
 knitr::kable(party_incumbent_promote, digits = 3, col.names = c("Party",
                                                                       "Incumbency",
